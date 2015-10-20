@@ -220,7 +220,7 @@ module.exports =
         console.log 'get data from hensei-nikki' if process.env.DEBUG?
         data = fs.readJSONSync join(APPDATA_PATH, 'hensei-nikki', "#{memberId}.json")
       catch e
-        console.error "Read hensei error!#{e}" if process.env.DEBUG?
+        console.error "Read hensei error!#{e}"
       if !data.titles?
         data.titles = []
       @setState
@@ -246,7 +246,7 @@ module.exports =
       try
         fs.writeJSONSync join(APPDATA_PATH, 'hensei-nikki', "#{@state.memberId}.json"), data
       catch e
-        console.error "Write hensei error!#{e}" if process.env.DEBUG?
+        console.error "Write hensei error!#{e}"
       @setState
         henseiData: data
     handleSelectTab: (selectedKey) ->
